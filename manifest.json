@@ -1,14 +1,14 @@
 {
   "name": "Neo-Tokyo Netrunner Terminal",
   "short_name": "Netrunner",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "fullscreen",
   "background_color": "#030308",
   "theme_color": "#00f3ff",
   "icons": [
     {
-      "src": "icons/ciber-icon.png",
-      "sizes": "360x360",
+      "src": "icons/icon2.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
