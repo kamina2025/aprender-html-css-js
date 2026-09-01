@@ -11,9 +11,12 @@
         <div class="dashboard-container">
             <!-- Cabecera -->
             <header class="header">
+                <button id="toggle-menu-btn" class="nav-btn">_MENÚ</button>
+
                 <div class="logo">NET_RUNNER_v4.2</div>
                 <div class="system-status">SYS_STATUS: ONLINE [98%]</div>
                 <button id="install-btn" class="nav-btn" style="display: none">_INSTALAR_PWA</button>
+
             </header>
 
             <!-- Menú Lateral -->
@@ -68,6 +71,7 @@
                 </div>
             </main>
         </div>
+        <script src="./script.js"></script>
         <script>
             if ("serviceWorker" in navigator) {
                 window.addEventListener("load", () => {

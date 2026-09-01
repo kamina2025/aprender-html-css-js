@@ -1,40 +1,36 @@
-// Correcto: clase ".sidebar" bien escrita y vinculada al evento de un botón
-const sidebar = document.querySelector('.sidebar');
-const toggleMenuBtn = document.getElementById('toggle-menu-btn'); // Asegúrate de asignar este ID a un botón de tu HTML
+// 1. Manejo del Sidebar (Ocultar / Mostrar)
+const dashboard = document.querySelector(".dashboard-container");
+const toggleMenuBtn = document.getElementById("toggle-menu-btn");
 
-if (toggleMenuBtn && sidebar) {
-  toggleMenuBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('hidden');
-  });
+if (toggleMenuBtn && dashboard) {
+    toggleMenuBtn.addEventListener("click", () => {
+        dashboard.classList.toggle("collapsed");
+    });
 }
 
-// Lógica para la instalación de la PWA
+// 2. Lógica para la instalación de la PWA
 let deferredPrompt;
-const installBtn = document.getElementById('install-btn');
+const installBtn = document.getElementById("install-btn");
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Previene que Chrome muestre el banner por defecto
-  e.preventDefault();
-  // Guarda el evento para ejecutarlo después
-  deferredPrompt = e;
-  // Muestra el botón de instalación
-  if (installBtn) {
-    installBtn.style.display = 'block';
-  }
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtn) {
+        installBtn.style.display = "inline-block";
+    }
 });
 
 if (installBtn) {
-  installBtn.addEventListener('click', () => {
-    if (deferredPrompt) {
-      // Muestra el cuadro de diálogo de instalación de Android
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('El usuario aceptó instalar la PWA');
+    installBtn.addEventListener("click", () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("PWA instalada");
+                }
+                deferredPrompt = null;
+                installBtn.style.display = "none";
+            });
         }
-        deferredPrompt = null;
-        installBtn.style.display = 'none';
-      });
-    }
-  });
+    });
 }
