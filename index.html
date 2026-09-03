@@ -2,75 +2,49 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cyberpunk Terminal Dashboard</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <title>PWA_Mensajero</title>
+        <!-- Add icon library -->
         <link rel="manifest" href="./manifest.json" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
+        <!-- Cabecera -->
+        <header class="header">
+            <button id="toggle-menu-btn" class="nav-btn"><i class="fa-solid fa-bars"></i>_MENÚ</button>
+
+            <div class="logo">Mensajero</div>
+            <div class="system-status">SYS_STATUS: ONLINE [98%]</div>
+            <button id="install-btn" class="nav-btn" style="display: none">_INSTALAR_PWA</button>
+        </header>
+
         <div class="dashboard-container">
-            <!-- Cabecera -->
-            <header class="header">
-                <button id="toggle-menu-btn" class="nav-btn">_MENÚ</button>
-
-                <div class="logo">NET_RUNNER_v4.2</div>
-                <div class="system-status">SYS_STATUS: ONLINE [98%]</div>
-                <button id="install-btn" class="nav-btn" style="display: none">_INSTALAR_PWA</button>
-
-            </header>
-
-            <!-- Menú Lateral -->
-            <aside class="sidebar">
-                <button class="nav-btn active">_RUTA</button>
-                <button class="nav-btn">_MONEDERO</button>
-                <button class="nav-btn">_NOTIFICACIONES</button>
-                <button class="nav-btn">_PERFIL</button>
-                <button class="nav-btn">_CONFIGURACIONES</button>
-                <button class="nav-btn">_CERRAR_SESSION</button>
-            </aside>
+            <div data-include="components/sidebar.html"></div>
+            <div data-include="modal/cerrar-session.html"></div>
 
             <!-- Contenido Central -->
-            <main class="main-content">
-                <!-- Tarjeta 1 -->
-                <div class="card">
-                    <h2 class="card-title">> COGNITIVE_LOAD</h2>
-                    <div class="data-display">84.22%</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 84%"></div>
-                    </div>
-                </div>
+            <main class="main-content" id="main-content">
+                <div data-include="views/submenu-ruta/rutas-activas.html"></div>
+                <div data-include="views/submenu-ruta/rutas-en-espera.html"></div>
+                <div data-include="views/submenu-ruta/cargar-offline.html"></div>
 
-                <!-- Tarjeta 2 -->
-                <div class="card" style="border-left-color: var(--neon-cyan)">
-                    <h2 class="card-title">> CREDIT_RESERVES</h2>
-                    <div
-                        class="data-display"
-                        style="color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 243, 255, 0.4)">
-                        $459,102
-                    </div>
-                    <p style="font-size: 0.9rem; color: #7a889b">EDDIE CURRENCY DETECTED</p>
-                </div>
+                
+                <div data-include="views/submenu-monedero/saldo.html"></div>
+                <div data-include="views/submenu-monedero/transacciones.html"></div>
 
-                <!-- Tarjeta 3 -->
-                <div class="card">
-                    <h2 class="card-title">> ICE_BREAKER_STATUS</h2>
-                    <div
-                        class="data-display"
-                        style="color: var(--neon-magenta); text-shadow: 0 0 10px rgba(255, 0, 85, 0.4)">
-                        BREACHING...
-                    </div>
-                    <div class="progress-bar" style="border-color: var(--neon-magenta)">
-                        <div
-                            class="progress-fill"
-                            style="
-                                width: 39%;
-                                background: var(--neon-magenta);
-                                box-shadow: 0 0 10px var(--neon-magenta);
-                            "></div>
-                    </div>
-                </div>
+                <div data-include="views/notificaciones/coordi-bodega.html"></div>
+                <div data-include="views/notificaciones/sobre-ruta.html"></div>
+
+                <div data-include="views/perfil/mi-moto.html"></div>
+                <div data-include="views/perfil/mis-datos.html"></div>
+
+                <div data-include="views/config.html"></div>
             </main>
         </div>
+        <script src="./app.js"></script>
         <script src="./script.js"></script>
         <script>
             if ("serviceWorker" in navigator) {

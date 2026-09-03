@@ -1,0 +1,92 @@
+<aside class="sidebar">
+    <div class="menu-item-has-submenu">
+        <button class="nav-btn btn-submenu-toggle">
+            <i class="fa-solid fa-route"></i>
+            <span>_RUTA</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </button>
+        <div class="submenu">
+            <button class="nav-btn sub-nav-btn" data-target="pestana-rutas-activas">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span>_ACTIVAS</span>
+            </button>
+            <button class="nav-btn sub-nav-btn" data-target="pestana-rutas-en-espera">
+                <i class="fa-solid fa-clipboard-question"></i>
+                <span>_EN_ESPERA</span>
+            </button>
+            <button class="nav-btn sub-nav-btn" data-target="pestana-cargar-offline">
+                <i class="fa-solid fa-clipboard-question"></i>
+                <span>_CARGAR_OFFLINE</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Botón desplegable: SIN data-target y CON clase .btn-submenu-toggle -->
+    <div class="menu-item-has-submenu">
+        <button class="nav-btn btn-submenu-toggle">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>_MONEDERO</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </button>
+
+        <!-- Submenú con sus botones de destino real -->
+        <div class="submenu">
+            <button class="nav-btn sub-nav-btn" data-target="pestana-monedero">
+                <i class="fa-solid fa-wallet"></i>
+                <span>_SALDO</span>
+            </button>
+            <button class="nav-btn sub-nav-btn" data-target="pestana-transacciones">
+                <i class="fa-solid fa-receipt"></i>
+                <span>_HISTORIAL</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item-has-submenu">
+        <!-- Ajustado data-target a modal-notificaciones o pestana-notificaciones -->
+        <button class="nav-btn btn-submenu-toggle">
+            <i class="fa-solid fa-inbox"></i>
+            <span>_NOTIFICACIONES</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </button>
+        <div class="submenu">
+            <button class="nav-btn sub-nav-btn" data-target="pestana-sobre-rutas">
+                <i class="fa-solid fa-truck-arrow-right"></i>
+                <span>_SOBRE_RUTA</span>
+            </button>
+            <button class="nav-btn sub-nav-btn" data-target="pestana-coordi-bodega">
+                <i class="fa-solid fa-warehouse"></i>
+                <span>_COORDINADOR/BODEGA</span>
+            </button>
+        </div>
+    </div>
+    <div class="menu-item-has-submenu">
+        <!-- Ajustado data-target a modal-notificaciones o pestana-notificaciones -->
+        <button class="nav-btn btn-submenu-toggle">
+            <i class="fa-solid fa-user"></i>
+            <span>_PERFIL</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </button>
+
+        <div class="submenu">
+            <button class="nav-btn sub-nav-btn" data-target="pestana-mis-datos">
+                <i class="fa-solid fa-id-card"></i>
+                <span>_MIS_DATOS</span>
+            </button>
+            <button class="nav-btn sub-nav-btn" data-target="pestana-mi-moto">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>_MI_MOTO</span>
+            </button>
+        </div>
+    </div>
+
+    <button class="nav-btn" data-target="pestana-config">
+        <i class="fa-solid fa-gear"></i>
+        <span>_CONFIGURACIONES</span>
+    </button>
+
+    <button class="nav-btn" data-target="modal-cerrar-session">
+        <i class="fa-solid fa-lock"></i>
+        <span>_CERRAR_SESSION</span>
+    </button>
+</aside>

@@ -10,3 +10,5 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   e.respondWith(fetch(e.request));
 });
+// Cambia el número de versión (ej. de v1 a v2)
+const CACHE_NAME = 'cyber-app-v2';
