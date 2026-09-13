@@ -105,18 +105,19 @@ document.addEventListener("click", (e) => {
         // CASO A: Si la tarjeta tiene un 'data-target', abre un modal o pestaña
         if (targetId) {
             const targetElement = document.getElementById(targetId);
-            if (targetElement && targetElement.classList.contains("modal-overlay")) {
-                targetElement.classList.add("activo");
-            }
-        }
-        // CASO B: Si es una tarjeta de selección de Cargar Offline (por su ID)
-        else {
-            if (cardBtn.id === "btn-cargar-ruta") {
-                console.log("[Cargar Offline] Iniciando flujo para RUTA (PDF, TXT, Excel, DB)...");
-                // Aquí agregas la lógica o llamada a la función para cargar rutas
-            } else if (cardBtn.id === "btn-cargar-paquete") {
-                console.log("[Cargar Offline] Iniciando flujo para PAQUETE (Escáner IA / Foto / Manual)...");
-                // Aquí agregas la lógica o apertura de la cámara/formulario de paquetes
+
+            if (targetElement && targetElement.classList.contains("contenedor-pestana")) {
+                const pestanas = document.querySelectorAll(".contenedor-pestana");
+                pestanas.forEach((p) => p.classList.add("activa"));
+
+                targetElement.classList.add("activa");
+                if (cardBtn.id === "btn-cargar-ruta") {
+                    console.log("[Navegacion] Redirigiendo a ruta actual desde seleccion de RUTA...");
+                    if (typeof initCyberMap === "function") initCyberMap();
+                } else if (cardBtn.id === "btn-cargar-paquete") {
+                    console.log("[Cargar Offline] Iniciando flujo para PAQUETE (Escáner IA / Foto / Manual)...");
+                    // Aquí agregas la lógica o apertura de la cámara/formulario de paquetes
+                }
             }
         }
     }
